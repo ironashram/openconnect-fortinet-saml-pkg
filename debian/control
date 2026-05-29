@@ -1,0 +1,49 @@
+Source: openconnect-fortinet-saml
+Section: net
+Priority: optional
+Maintainer: Michele Palazzi <sysdadmin@m1k.cloud>
+Build-Depends: debhelper-compat (= 13),
+               autoconf,
+               automake,
+               libtool,
+               pkg-config,
+               intltool,
+               libxml2-dev,
+               libgnutls28-dev,
+               libproxy-dev,
+               libkrb5-dev,
+               liblz4-dev,
+               libpcsclite-dev,
+               libstoken-dev,
+               libtss2-dev,
+               liboath-dev,
+               libpskc-dev,
+               libp11-kit-dev,
+               python3 <!nocheck>,
+               python3-flask <!nocheck>
+Standards-Version: 4.6.2
+Homepage: https://github.com/ironashram/openconnect-fortinet-saml
+Vcs-Browser: https://github.com/ironashram/openconnect-fortinet-saml
+Vcs-Git: https://github.com/ironashram/openconnect-fortinet-saml.git
+Rules-Requires-Root: no
+
+Package: openconnect-fortinet-saml
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         vpnc-scripts,
+         xdg-utils,
+         ca-certificates
+Recommends: ca-certificates
+Provides: openconnect
+Conflicts: openconnect
+Replaces: openconnect
+Description: Open client for Cisco AnyConnect VPN with Fortinet SAML/SSO
+ OpenConnect is a VPN client compatible with Cisco AnyConnect, Juniper SSL,
+ Pulse Connect Secure, F5 BIG-IP, Fortinet, Palo Alto GlobalProtect, and
+ Array Networks SSL VPN servers.
+ .
+ This build adds Fortinet SAML/SSO support based on upstream MR !632, plus
+ a local per-host overrides framework (/etc/openconnect/local-overrides.conf)
+ for forcing SAML, using the system default browser, or disabling IPv6 on
+ specific gateways.

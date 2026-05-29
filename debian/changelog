@@ -1,0 +1,10 @@
+openconnect-fortinet-saml (1.0.0-1) UNRELEASED; urgency=medium
+
+  * Initial packaging of the fork.
+  * Fortinet SAML/SSO support based on upstream MR !632.
+  * Restored gnutls_pkcs11_init() workaround for gnutls#1798.
+  * Local per-host overrides framework via
+    /etc/openconnect/local-overrides.conf (flags: force-saml,
+    force-ext-browser, disable-ipv6).
+
+ -- Michele Palazzi <sysdadmin@m1k.cloud>  Fri, 29 May 2026 23:50:00 +0200

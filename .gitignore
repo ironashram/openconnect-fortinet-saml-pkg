@@ -1,0 +1,15 @@
+dist/
+src/
+pkg/
+openconnect/
+openconnect-fortinet-saml/
+*.pkg.tar
+*.pkg.tar.zst
+*.pkg.tar.xz
+*.deb
+*.dsc
+*.changes
+*.buildinfo
+*.tar.gz
+*.tar.xz
+*.tar.zst
