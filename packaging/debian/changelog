@@ -1,3 +1,11 @@
+openconnect-fortinet-saml (1.0.1-1) UNRELEASED; urgency=medium
+
+  * ssl.c: extend disable_ipv6 to skip AAAA on outer gateway resolution
+    too. Removes the need for an /etc/hosts override on dual-stack-DNS
+    gateways that listen on IPv4 only.
+
+ -- Michele Palazzi <sysdadmin@m1k.cloud>  Sat, 30 May 2026 00:30:00 +0200
+
 openconnect-fortinet-saml (1.0.0-1) UNRELEASED; urgency=medium
 
   * Initial packaging of the fork.
