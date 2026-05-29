@@ -40,7 +40,7 @@ echo ">>> source: ${REPO_URL} @ ${REPO_REF}"
 echo ">>> output: ${OUT_DIR}"
 
 "${ENGINE}" run --rm \
-	-v "${SCRIPT_DIR}/debian:/pkg/debian:ro" \
+	-v "${SCRIPT_DIR}/packaging/debian:/pkg/debian:ro" \
 	-v "${OUT_DIR}:/out" \
 	-e REPO_URL="${REPO_URL}" \
 	-e REPO_REF="${REPO_REF}" \
