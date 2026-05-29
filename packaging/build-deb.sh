@@ -64,6 +64,20 @@ echo ">>> output: ${OUT_DIR}"
 		# debian/ from this packaging repo overlays the upstream source.
 		cp -r /pkg/debian ./debian
 
+		# Bump the changelog with a distro-specific revision suffix so the
+		# resulting .deb is named e.g. "_1.0.0-1ubuntu24.04_amd64.deb" rather
+		# than just "_1.0.0-1_amd64.deb" (avoids collisions when the same
+		# version is built against multiple Ubuntu / Debian releases).
+		export DEBEMAIL="sysdadmin@m1k.cloud"
+		export DEBFULLNAME="Michele Palazzi"
+		DISTRO=$(lsb_release -is | tr "[:upper:]" "[:lower:]")
+		RELEASE=$(lsb_release -rs)
+		CODENAME=$(lsb_release -cs)
+		BASE_VERSION=$(dpkg-parsechangelog -S Version)
+		NEW_VERSION="${BASE_VERSION}${DISTRO}${RELEASE}"
+		dch -v "${NEW_VERSION}" --distribution "${CODENAME}" \
+		    "Automated build for ${DISTRO} ${RELEASE}"
+
 		mk-build-deps -i -r -t "apt-get -y --no-install-recommends"
 
 		dpkg-buildpackage -us -uc -b
