@@ -21,8 +21,9 @@ REPO_URL="${OPENCONNECT_SAML_REPO:-https://github.com/ironashram/openconnect-for
 REPO_REF="${OPENCONNECT_SAML_REF:-master}"
 
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+REPO_ROOT=$(cd "${SCRIPT_DIR}/.." && pwd)
 TAG_SAFE=$(echo "${IMAGE}" | tr '/:' '--')
-OUT_DIR="${SCRIPT_DIR}/dist/${TAG_SAFE}"
+OUT_DIR="${REPO_ROOT}/dist/${TAG_SAFE}"
 
 mkdir -p "${OUT_DIR}"
 
@@ -40,7 +41,7 @@ echo ">>> source: ${REPO_URL} @ ${REPO_REF}"
 echo ">>> output: ${OUT_DIR}"
 
 "${ENGINE}" run --rm \
-	-v "${SCRIPT_DIR}/packaging/debian:/pkg/debian:ro" \
+	-v "${SCRIPT_DIR}/debian:/pkg/debian:ro" \
 	-v "${OUT_DIR}:/out" \
 	-e REPO_URL="${REPO_URL}" \
 	-e REPO_REF="${REPO_REF}" \

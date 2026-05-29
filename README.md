@@ -31,9 +31,9 @@ Runs `dpkg-buildpackage` inside a container of the target distro.
 Needs docker or podman; nothing else on the host.
 
 ```
-./build-deb.sh ubuntu:26.04           # current LTS
-./build-deb.sh ubuntu:24.04           # previous LTS
-./build-deb.sh debian:bookworm        # Debian stable
+packaging/build-deb.sh ubuntu:26.04           # current LTS
+packaging/build-deb.sh ubuntu:24.04           # previous LTS
+packaging/build-deb.sh debian:bookworm        # Debian stable
 ```
 
 Any apt-based image works; the script forwards the tag verbatim to
