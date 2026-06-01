@@ -17,8 +17,8 @@ distro packaging.
 ## Arch Linux
 
 ```
-( cd packaging/arch && makepkg -sCf --noconfirm )
-sudo pacman -U packaging/arch/openconnect-fortinet-saml-git-*.pkg.tar
+( cd packaging/arch && PKGEXT='.pkg.tar.zst' makepkg -sCf --noconfirm )
+sudo pacman -U packaging/arch/openconnect-fortinet-saml-*.pkg.tar.zst
 ```
 
 Provides `openconnect` and conflicts with the stock package, so it

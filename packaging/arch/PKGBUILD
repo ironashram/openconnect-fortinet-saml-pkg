@@ -1,7 +1,7 @@
 # Maintainer: Michele Palazzi <sysdadmin@m1k.cloud>
 # Based on the Arch openconnect PKGBUILD by Levente Polyak
 
-pkgname=openconnect-fortinet-saml-git
+pkgname=openconnect-fortinet-saml
 _upstream=openconnect
 pkgver=1.0.2
 pkgrel=1
