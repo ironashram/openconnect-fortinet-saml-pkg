@@ -35,9 +35,9 @@ Depends: ${shlibs:Depends},
          xdg-utils,
          ca-certificates
 Recommends: ca-certificates
-Provides: openconnect
-Conflicts: openconnect
-Replaces: openconnect
+Provides: openconnect, libopenconnect5 (= 9.12)
+Conflicts: openconnect, libopenconnect5
+Replaces: openconnect, libopenconnect5
 Description: Open client for Cisco AnyConnect VPN with Fortinet SAML/SSO
  OpenConnect is a VPN client compatible with Cisco AnyConnect, Juniper SSL,
  Pulse Connect Secure, F5 BIG-IP, Fortinet, Palo Alto GlobalProtect, and

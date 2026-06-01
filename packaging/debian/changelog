@@ -1,3 +1,13 @@
+openconnect-fortinet-saml (1.0.2-1) UNRELEASED; urgency=medium
+
+  * debian/control: declare Provides/Conflicts/Replaces on libopenconnect5
+    (versioned Provides = 9.12). The package ships the patched
+    libopenconnect.so.5; without this, network-manager-openconnect's
+    "libopenconnect5 (>= 8.20~)" dependency pulled the stock lib, which
+    collided with the patched one.
+
+ -- Michele Palazzi <sysdadmin@m1k.cloud>  Mon, 01 Jun 2026 00:00:00 +0200
+
 openconnect-fortinet-saml (1.0.1-1) UNRELEASED; urgency=medium
 
   * ssl.c: extend disable_ipv6 to skip AAAA on outer gateway resolution
