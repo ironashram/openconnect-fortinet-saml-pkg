@@ -1,3 +1,20 @@
+openconnect-fortinet-saml (1.0.4-1) UNRELEASED; urgency=medium
+
+  * Rebase onto upstream openconnect master past v9.21.
+    Picks up --tcp-keepalive support and fortinet.c warning fixes.
+  * fortinet.c: fix inverted svrhello/heartbeat detection in the DTLS
+    probe. A svrhello "fail" reply (sent by the gateway once the auth
+    session expires) was misparsed as a heartbeat and swallowed, leaving
+    the client stuck in an endless dead-peer/reconnect loop with the VPN
+    apparently connected but passing no traffic. The failure now disables
+    DTLS so the TLS fallback detects the rejected cookie and exits
+    cleanly, letting NetworkManager tear the connection down.
+  * ppp.c: recognise Fortinet GFtype heartbeat packets on the established
+    tunnel and count them towards DPD liveness instead of dropping them
+    as bad pre-PPP headers.
+
+ -- Michele Palazzi <sysdadmin@m1k.cloud>  Wed, 29 Jul 2026 15:00:00 +0200
+
 openconnect-fortinet-saml (1.0.2-1) UNRELEASED; urgency=medium
 
   * debian/control: declare Provides/Conflicts/Replaces on libopenconnect5
