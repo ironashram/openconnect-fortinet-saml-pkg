@@ -16,10 +16,9 @@ distro packaging.
 
 ## Arch Linux
 
-```
-( cd packaging/arch && PKGEXT='.pkg.tar.zst' makepkg -sCf --noconfirm )
-sudo pacman -U packaging/arch/openconnect-fortinet-saml-*.pkg.tar.zst
-```
+The PKGBUILD moved to
+[ironashram/arch-pkgbuilds](https://github.com/ironashram/arch-pkgbuilds),
+directory `openconnect-fortinet-saml/`.
 
 Provides `openconnect` and conflicts with the stock package, so it
 replaces it cleanly. `networkmanager-openconnect` /
@@ -73,5 +72,6 @@ file is absent. First match wins.
 ## Version
 
 The fork uses its own SemVer starting at `1.0.0`, decoupled from
-upstream openconnect's `9.x` line. Bump manually in `PKGBUILD`
-(`pkgver`) and `debian/changelog` when cutting a release.
+upstream openconnect's `9.x` line. Bump manually in the
+arch-pkgbuilds `PKGBUILD` (`pkgver`) and `debian/changelog` when
+cutting a release.
