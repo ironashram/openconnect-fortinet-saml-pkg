@@ -65,6 +65,13 @@ Flags:
   rather than the public hostname.
 - `disable-ipv6` — disable IPv6 advertisement during VPN negotiation.
 
+With `force-ext-browser`, the success page served on the local SAML
+listener closes its own tab after one second. Firefox ignores
+`window.close()` on tabs a script did not open, so set
+`dom.allow_scripts_to_close_windows` to `true` (about:config, or
+`user_pref("dom.allow_scripts_to_close_windows", true);` in the
+profile's `user.js`) for the tab to actually close.
+
 `$XDG_CONFIG_HOME/openconnect/local-overrides.conf` (typically
 `~/.config/openconnect/local-overrides.conf`) is checked if the system
 file is absent. First match wins.
