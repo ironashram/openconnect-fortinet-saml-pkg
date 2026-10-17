@@ -3,8 +3,6 @@ openconnect-fortinet-saml (1.0.5-1) UNRELEASED; urgency=medium
   * fortinet.c: the SAML redirect success page served on the local
     listener now calls window.close() after one second, so the browser
     tab opened by the external-browser flow goes away on its own.
-    Firefox only honours it with dom.allow_scripts_to_close_windows set
-    to true, because the tab was not opened by a script.
 
  -- Michele Palazzi <sysdadmin@m1k.cloud>  Sat, 17 Oct 2026 23:45:00 +0200
 
